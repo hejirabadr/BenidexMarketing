@@ -38,7 +38,7 @@
 
 Les 9 secteurs du catalogue 2026 (Bureau, Fournitures, Informatique, Jouets, Laboratoire, Mobilier, Psychomotricité, Sport, Théâtre) ne servent **pas** de référence pour les contenus.
 
-**Marques** : Benidex est **distributeur / partenaire de plusieurs marques**. BenQ n'est plus distribué : ne jamais le mentionner. La liste des marques partenaires n'est pas nécessaire : ne pas la détailler. Les noms de modèles du site (ICON, FERRE, SILVIA, ARCON, CABRIO, NEVA, SENSITIVE, MOVI, LUMINA, NEXUS, INCI, LALE) sont des noms de produits ; leur statut (marque ou collection) est [À CONFIRMER].
+**Marques** : Benidex est **distributeur / partenaire de plusieurs marques**. BenQ n'est plus distribué : ne jamais le mentionner. La liste des marques partenaires n'est pas nécessaire : ne pas la détailler. Les noms de modèles du site (ICON, FERRE, SILVIA, ARCON, CABRIO, NEVA, SENSITIVE, MOVI, LUMINA, NEXUS, INCI, LALE) sont des noms de gammes **propres à un fournisseur** : ce ne sont **pas** des marques Benidex. Ne pas les présenter comme des marques ou collections Benidex. Les citer seulement comme noms de modèles quand c'est utile (fiche produit). Nom du fournisseur : non précisé, ne pas le citer.
 
 ## 4. Clients cibles (par priorité)
 
