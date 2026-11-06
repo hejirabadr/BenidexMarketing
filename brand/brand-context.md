@@ -27,15 +27,16 @@
 
 ## 3. Produits et secteurs
 
-**Secteurs officiels du catalogue 2026** (ordre à respecter) : Bureau, Fournitures, Informatique, Jouets, Laboratoire, Mobilier, Psychomotricité, Sport, Théâtre.
+**Référence : les catégories du site www.benidex.com** (et non le catalogue 2026).
 
-**Catégories visibles sur le site** (à rapprocher des secteurs ci-dessus) :
 - **Mobilier scolaire** : crèche et maternelle (espaces à thème, chaises, tables, rangement, poufs et jeux en mousse, sécurité) ; primaire, collège, lycée (pupitres, chaises, bureau d'enseignant, tableaux, armoires et casiers) ; bibliothèque ; cantine ; psychomotricité.
 - **Mobilier de bureau** : chaises, bureaux et armoires.
 - **Infrastructure et technologies** : infrastructure IT, support et maintenance, Smart City, audiovisuel, sécurité intelligente.
 - **Écrans interactifs**.
 - **Jouets éducatifs** : construction, mots et langues, jeux de rôles, arts et créativité, mathématiques, science, motricité fine, jouets sociaux et émotionnels, sensoriels, apprentissage précoce, Montessori, puzzles.
 - **Jeux extérieurs**.
+
+Les 9 secteurs du catalogue 2026 (Bureau, Fournitures, Informatique, Jouets, Laboratoire, Mobilier, Psychomotricité, Sport, Théâtre) ne servent **pas** de référence pour les contenus.
 
 **Marques** : Benidex est **distributeur / partenaire de plusieurs marques**. BenQ n'est plus distribué : ne jamais le mentionner. Liste des marques partenaires : [À CONFIRMER]. Les noms de modèles du site (ICON, FERRE, SILVIA, ARCON, CABRIO, NEVA, SENSITIVE, MOVI, LUMINA, NEXUS, INCI, LALE) sont des noms de produits ; leur statut (marque ou collection) est [À CONFIRMER].
 
@@ -104,7 +105,6 @@ Chiffres clés (projets, écoles équipées, équipe) : aucun à utiliser pour l
 
 ## 11. Points ouverts à compléter
 
-- [ ] Liste officielle des secteurs : catalogue 2026 (9 secteurs) ou catégories du site ?
 - [ ] Email officiel
 - [ ] Marques partenaires distribuées
 - [ ] Concurrents principaux
