@@ -30,13 +30,13 @@ Lire le plan média dans Notion, puis produire pour chaque ligne le contenu (tex
 - Photo : proposé 4:5, 1080×1350 – à confirmer.
 
 ## Génération des visuels
-- Choix : **option A = API Gemini de Google** (clé ajoutée par Badr dans les paramètres de l'environnement « BenidexMarketing »). Nom de la variable ou du secret : à confirmer.
-- Variable d'environnement : **`GEMINI_API_KEY`** (confirmée).
-- **Test du 2026-11-06** :
-  - Clé valide : liste des modèles OK (HTTP 200) et génération de texte OK avec `gemini-3.5-flash-lite`. Le modèle `gemini-2.5-flash-lite` est retiré pour les nouveaux utilisateurs (404) : l'agent doit lister les modèles disponibles plutôt que coder un nom en dur.
-  - **Génération d'image bloquée** : `gemini-3.1-flash-image` renvoie HTTP 429, quota « Free tier » à **0**. Il faut activer la facturation (compte payant) sur le projet Google de la clé.
-  - Modèles d'image listés : `gemini-3.1-flash-image`, `gemini-3-pro-image`, `nano-banana-pro-preview`. **Aucun modèle Imagen ni Veo n'est listé** : génération vidéo non confirmée.
-- Secours proposé : gabarits Benidex (logo + couleurs + photo) et ffmpeg.
+- **Décision du 2026-11-06 : zéro budget, pas d'API Gemini** (quota image à 0 sur l'offre gratuite ; Imagen/Veo non listés). Socle retenu = **option 1 : montage local à partir des vraies photos de benidex.com**.
+- Source des photos : API WordPress de benidex.com (`/wp-json/wp/v2/product/<id>` puis `/wp-json/wp/v2/media/<featured_media>`), accessible depuis l'environnement. Le produit reste fidèle (jamais généré, déformé ni rogné).
+- **Photo (4:5, 1080×1350)** : `tools/make_photo.py <id_produit> [sortie.png] [--titre "..."]` (Pillow). Gabarit : logo, bandeau `#2EAADC`, carte photo, bloc `#0E72B5`, titre, bouton `#F29400` « Demandez votre devis », benidex.com. Aucun prix. Prototype validé sur 2 produits.
+- **Reel / Vidéo** : à construire avec ffmpeg (photos + zoom/transitions + texte, 9:16, 15–30 s pour le Reel, ≤ 20 s pour la Vidéo).
+- À faire : variante arabe (texte droite-à-gauche, police arabe + mise en forme des lettres), variante anglaise, variantes de gabarit, utilisation de plusieurs photos par produit (galerie).
+- Limite connue : certaines photos du site sont petites (agrandies, donc un peu floues). Une meilleure source serait un fichier fourni par Badr.
+- Option payante écartée pour l'instant (FLUX, OpenAI, fal.ai/Replicate) : à reconsidérer seulement pour des scènes générées ou de la vidéo animée par IA.
 
 ## Questions encore ouvertes
 - Colonne « Photo produit » (fichier) à ajouter au Media Plan ? Nombre de photos par produit ?
