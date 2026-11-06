@@ -1,6 +1,6 @@
-# Agent benidexMarketingManager – spécification finale (en attente de feu vert)
+# Agent benidexMarketingManager – spécification
 
-> Statut : **non construit**. À lire avec `CLAUDE.md` et `brand/brand-context.md`.
+> Statut : **construit** (instructions dans `agents/benidexMarketingManager/AGENT.md`, scripts dans `agents/benidexMarketingManager/scripts/`). **Bloqué** tant que le quota de génération d'images Google n'est pas activé (erreur 429 sur tous les modèles). Pas de modèle Veo avec la clé actuelle : les vidéos sont des montages animés d'images générées. À lire avec `CLAUDE.md` et `brand/brand-context.md`.
 
 ## Rôle
 Lire le plan média dans Notion et produire, pour chaque ligne du jour, le contenu (texte + visuels) du produit à couvrir, au format demandé (Reel, Vidéo ou Photo). **Ne publie jamais** : Badr valide et publie.
