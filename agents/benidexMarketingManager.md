@@ -31,6 +31,11 @@ Lire le plan média dans Notion, puis produire pour chaque ligne le contenu (tex
 
 ## Génération des visuels
 - Choix : **option A = API Gemini de Google** (clé ajoutée par Badr dans les paramètres de l'environnement « BenidexMarketing »). Nom de la variable ou du secret : à confirmer.
+- Variable d'environnement : **`GEMINI_API_KEY`** (confirmée).
+- **Test du 2026-11-06** :
+  - Clé valide : liste des modèles OK (HTTP 200) et génération de texte OK avec `gemini-3.5-flash-lite`. Le modèle `gemini-2.5-flash-lite` est retiré pour les nouveaux utilisateurs (404) : l'agent doit lister les modèles disponibles plutôt que coder un nom en dur.
+  - **Génération d'image bloquée** : `gemini-3.1-flash-image` renvoie HTTP 429, quota « Free tier » à **0**. Il faut activer la facturation (compte payant) sur le projet Google de la clé.
+  - Modèles d'image listés : `gemini-3.1-flash-image`, `gemini-3-pro-image`, `nano-banana-pro-preview`. **Aucun modèle Imagen ni Veo n'est listé** : génération vidéo non confirmée.
 - Secours proposé : gabarits Benidex (logo + couleurs + photo) et ffmpeg.
 
 ## Questions encore ouvertes
