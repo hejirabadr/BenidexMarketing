@@ -2,7 +2,7 @@
 
 > Source de vérité sur l'entreprise. À lire avant toute création (voir `CLAUDE.md`).
 > Sources : www.benidex.com, skill « Benidex marque », réponses de Badr HEJIRA (CEO).
-> Tout ce qui est marqué **[À CONFIRMER]** n'est pas validé : ne pas l'affirmer sans vérification.
+> Tout ce qui est marqué **[À CONFIRMER]** ou « non défini » n'est pas validé : ne pas l'affirmer sans vérification.
 
 ## 1. Identité
 
@@ -22,7 +22,7 @@
 
 - **Téléphone** : 06 06 02 02 00
 - **WhatsApp** : +212 661-020808
-- **Email officiel** : [À CONFIRMER]
+- **Email officiel** : contact@benidex.com
 - Le site affiche d'autres numéros (06 30 00 66 99, 07 01 22 02 02) : ne pas les utiliser.
 
 ## 3. Produits et secteurs
@@ -38,7 +38,7 @@
 
 Les 9 secteurs du catalogue 2026 (Bureau, Fournitures, Informatique, Jouets, Laboratoire, Mobilier, Psychomotricité, Sport, Théâtre) ne servent **pas** de référence pour les contenus.
 
-**Marques** : Benidex est **distributeur / partenaire de plusieurs marques**. BenQ n'est plus distribué : ne jamais le mentionner. Liste des marques partenaires : [À CONFIRMER]. Les noms de modèles du site (ICON, FERRE, SILVIA, ARCON, CABRIO, NEVA, SENSITIVE, MOVI, LUMINA, NEXUS, INCI, LALE) sont des noms de produits ; leur statut (marque ou collection) est [À CONFIRMER].
+**Marques** : Benidex est **distributeur / partenaire de plusieurs marques**. BenQ n'est plus distribué : ne jamais le mentionner. La liste des marques partenaires n'est pas nécessaire : ne pas la détailler. Les noms de modèles du site (ICON, FERRE, SILVIA, ARCON, CABRIO, NEVA, SENSITIVE, MOVI, LUMINA, NEXUS, INCI, LALE) sont des noms de produits ; leur statut (marque ou collection) est [À CONFIRMER].
 
 ## 4. Clients cibles (par priorité)
 
@@ -58,7 +58,7 @@ Trois différenciateurs, dans cet ordre :
 Formule autorisée : « meilleur rapport qualité-prix ».
 Formule interdite : « au meilleur prix au Maroc » (employée sur le site, mais exagérée).
 
-Concurrents principaux : [À CONFIRMER].
+Concurrents principaux : **Eduhermex, Edumaster, Scody**.
 Chiffres clés (projets, écoles équipées, équipe) : aucun à utiliser pour l'instant. Ne rien inventer.
 
 ## 6. Services
@@ -66,7 +66,7 @@ Chiffres clés (projets, écoles équipées, équipe) : aucun à utiliser pour l
 - **Devis** avec conseils d'experts : vente sur devis uniquement.
 - **Livraison** possible, avec **frais supplémentaires à la charge du client**.
 - Support et maintenance : proposé pour l'informatique.
-- Installation, personnalisation, garantie : [À CONFIRMER]. Ne pas les promettre.
+- Installation, personnalisation, garantie : **non définies**. Ne pas les promettre ni les mentionner.
 - Les services ne sont pas des articles de catalogue.
 
 ## 7. Identité visuelle
@@ -81,7 +81,7 @@ Chiffres clés (projets, écoles équipées, équipe) : aucun à utiliser pour l
 | Orange | `#F29400` | Carré du logo, boutons d'appel à l'action |
 
 - **Règles du logo** : fond clair de préférence, ne pas déformer, ne pas recolorer, laisser une marge libre autour. En haut à gauche des documents (devis, catalogue, présentations).
-- **Typographie** : [À CONFIRMER].
+- **Typographie** : non définie. Utiliser une police sans empattement sobre en attendant, sans l'ériger en règle de marque.
 
 ## 8. Ton de voix
 
@@ -103,10 +103,6 @@ Chiffres clés (projets, écoles équipées, équipe) : aucun à utiliser pour l
 - Appel à l'action habituel : **« Demandez votre devis »**.
 - En cas de doute sur un fait (date, chiffre, produit, marque), demander à Badr au lieu d'inventer.
 
-## 11. Points ouverts à compléter
+## 11. Points ouverts
 
-- [ ] Email officiel
-- [ ] Marques partenaires distribuées
-- [ ] Concurrents principaux
-- [ ] Installation, personnalisation, garantie
-- [ ] Typographie de la marque
+Aucun point ouvert pour l'instant. Éléments volontairement non définis : installation, personnalisation, garantie, typographie, chiffres clés.
