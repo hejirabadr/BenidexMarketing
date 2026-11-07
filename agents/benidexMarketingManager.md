@@ -18,10 +18,10 @@ Automatique, chaque jour à **5 h heure de Casablanca** (4 h UTC ; 5 h UTC penda
 
 ## Déroulé (modèle : Sonnet 5.5)
 1. Lire le Media Plan **dans l'ordre de la liste Notion**.
-2. Ne traiter que les lignes **« À faire » dont la Date prévue = aujourd'hui**. Date vide ou autre date : ne rien faire (pas d'échec).
+2. Ne traiter que les lignes **« À faire »** avec une **Date prévue renseignée, aujourd'hui ou passée** (les lignes en retard sont exécutées). **Date vide ou future : ne rien faire** (pas d'échec).
 3. **Pas de doublons** : si Content contient déjà le même produit au même format (quel que soit le statut), ne pas refaire.
 4. Ligne → « En cours ».
-5. Regarder la **photo du produit**, chercher le produit sur internet et sur benidex.com pour comprendre son fonctionnement.
+5. **Photos** : colonne « Photos produit » d'abord ; **si elle est vide, prendre les photos sur la page du produit** (lien dans la colonne Produit). Regarder la photo, chercher le produit sur internet et sur benidex.com pour comprendre son fonctionnement.
 6. Décider seul : angle et public (clients prioritaires du brand-context), hashtags (selon contenu et cible), langue.
 7. **Langue** : rotation par canal, Français → Anglais → Arabe → Français… (d'après la colonne Langue du dernier contenu de ce canal dans Content). Jamais de darija.
 8. Générer texte (hook, légende, hashtags) et visuels via l'**API Gemini de Google** (Imagen / Veo). Secours possible : gabarits Benidex + ffmpeg.
