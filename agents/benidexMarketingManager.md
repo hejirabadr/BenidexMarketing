@@ -3,7 +3,7 @@
 > Statut : **construit** (instructions dans `agents/benidexMarketingManager/AGENT.md`, scripts dans `agents/benidexMarketingManager/scripts/`). **Option A retenue** : pas d'IA d'images (quota Google bloqué) ; l'agent compose posts et reels à partir de vraies photos (scripts `compose_media.py`, `fetch_product_photos.py`). Si la page produit ne marche pas, l'agent cherche données et photos sur internet. À lire avec `CLAUDE.md` et `brand/brand-context.md`.
 
 ## Rôle
-Lire le plan média dans Notion et produire, pour chaque ligne du jour, le contenu (texte + visuels) du produit à couvrir, au format demandé (Reel, Vidéo ou Photo). **Ne publie jamais** : Badr valide et publie.
+Lire le plan média dans Notion et produire, pour chaque ligne du jour, le contenu (texte + visuels) du produit à couvrir, au format demandé (Reel, Vidéo ou Photo). **Publie systématiquement** les contenus contrôlés sur les comptes connectés via Windsor (aujourd'hui : Instagram @benidex.maroc pour les vidéos et photos). **S'il n'a rien à publier ou si le compte n'est pas connecté, il ne publie rien.** Voir `AGENT.md` §8.
 
 ## Notion (workspace « Benidex Marketing »)
 - **Media Plan** : https://app.notion.com/p/b41156e74308469787fc77990de8141c (`collection://2dae0263-bdac-4824-b5a5-8f15c6b6df1e`)
@@ -62,3 +62,9 @@ Vidéo : 20 s maximum. Un fichier par format si plusieurs canaux.
 - Photos : colonne « Photos produit » → page du produit → recherche internet (jamais de photos de concurrents ni avec filigrane ; sources notées pour vérification des droits).
 - Pas de génération d'images par IA ; texte, logo et bouton « Demandez votre devis » incrustés.
 - Canaux vide → Échec « Aucun canal choisi ».
+
+## Mise à jour (publication)
+- Publication automatique via Windsor, au moment de l'exécution (pas de programmation) ; aucun réessai ; jamais de story, commentaire, publicité ou suppression.
+- Vérifie à chaque exécution que le compte est connecté (`get_connectors`) et qu'une action adaptée existe (`list_actions`) ; sinon rien n'est publié.
+- Statut Content : « Publié » seulement après un succès, avec l'identifiant média dans la page.
+- Prérequis : connecteur Windsor et connecteur Notion attachés à la routine dans l'interface claude.ai.
