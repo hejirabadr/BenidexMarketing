@@ -88,7 +88,7 @@ Prod/AAAA-MM-JJ/<slug-produit>/
 3. `git pull --rebase origin <branche-principale>` puis `git push origin HEAD:<branche-principale>`.
 4. Interdit : `git checkout -b`, `git branch <nom>`, création de branche par l'API GitHub, pull request.
 Si le push échoue après plusieurs nouvelles tentatives, mets quand même la ligne en « Traité » mais écris dans Folder « non poussé » et signale-le dans le corps de la page Content.
-Dans la propriété `Folder` de Content, écris le chemin du fichier : `Prod/AAAA-MM-JJ/<slug-produit>/<output>-<canal>.mp4` (ou `.jpg`), sans nom de branche.
+Dans la propriété `Folder` de Content, écris le **chemin du dossier du produit** : `Prod/AAAA-MM-JJ/<slug-produit>` (sans extension de fichier, car Notion transforme `.mp4` en faux lien, et sans nom de branche). Cite le nom exact du fichier dans le corps de la page, entre accents graves (`reel-instagram.mp4`).
 
 ## 7. Limites et honnêteté
 - Rien d'inventé : chiffres, marques, services (installation, garantie, personnalisation : non définis, ne pas les mentionner).
