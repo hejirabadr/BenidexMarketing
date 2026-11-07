@@ -1,6 +1,6 @@
 # Agent benidexMarketingManager – spécification
 
-> Statut : **construit** (instructions dans `agents/benidexMarketingManager/AGENT.md`, scripts dans `agents/benidexMarketingManager/scripts/`). **Bloqué** tant que le quota de génération d'images Google n'est pas activé (erreur 429 sur tous les modèles). Pas de modèle Veo avec la clé actuelle : les vidéos sont des montages animés d'images générées. À lire avec `CLAUDE.md` et `brand/brand-context.md`.
+> Statut : **construit** (instructions dans `agents/benidexMarketingManager/AGENT.md`, scripts dans `agents/benidexMarketingManager/scripts/`). **Option A retenue** : pas d'IA d'images (quota Google bloqué) ; l'agent compose posts et reels à partir de vraies photos (scripts `compose_media.py`, `fetch_product_photos.py`). Si la page produit ne marche pas, l'agent cherche données et photos sur internet. À lire avec `CLAUDE.md` et `brand/brand-context.md`.
 
 ## Rôle
 Lire le plan média dans Notion et produire, pour chaque ligne du jour, le contenu (texte + visuels) du produit à couvrir, au format demandé (Reel, Vidéo ou Photo). **Ne publie jamais** : Badr valide et publie.
@@ -57,3 +57,8 @@ Vidéo : 20 s maximum. Un fichier par format si plusieurs canaux.
 ## Points encore à confirmer
 - Tableau des formats par canal.
 - Exemple de style : « Table cantine » ou « Coussins de sol colorés » dans Content comme modèle ?
+
+## Mise à jour (option A)
+- Photos : colonne « Photos produit » → page du produit → recherche internet (jamais de photos de concurrents ni avec filigrane ; sources notées pour vérification des droits).
+- Pas de génération d'images par IA ; texte, logo et bouton « Demandez votre devis » incrustés.
+- Canaux vide → Échec « Aucun canal choisi ».
