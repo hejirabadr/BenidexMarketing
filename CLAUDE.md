@@ -25,7 +25,7 @@ Tous les outils marketing de Benidex : contenus, médias (visuels, vidéos, rés
 - **Modèle et crédits** : avant une tâche, vérifier le modèle utilisé. Si un modèle moins coûteux peut faire la même tâche avec la même précision, me le proposer et **demander mon avis avant de changer**.
 - **Faits** : ne rien inventer (chiffres, marques, dates, services). En cas de doute, me demander.
 - **Format des livrables** : selon le besoin. Choisir le format adapté (Markdown, Word, PDF, Google Docs, Notion, etc.) et me le dire.
-- **Git** : après chaque création, **commit et push** sur la branche de travail désignée, avec un message de commit clair. Pas de pull request sans que je la demande.
+- **Git** : après chaque création, **commit et push directement sur la branche principale** du dépôt (la branche par défaut sur GitHub), avec un message de commit clair. **Ne jamais créer de branche.** Pas de pull request sans que je la demande. Les résultats des agents vont dans `Prod/AAAA-MM-JJ/` (au même niveau que `agents` et `assets`).
 
 ## Rappels de marque (détails dans `brand/brand-context.md`)
 

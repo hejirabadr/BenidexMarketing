@@ -25,7 +25,7 @@ Automatique, chaque jour à **5 h heure de Casablanca** (4 h UTC ; 5 h UTC penda
 6. Décider seul : angle et public (clients prioritaires du brand-context), hashtags (selon contenu et cible), langue.
 7. **Langue** : rotation par canal, Français → Anglais → Arabe → Français… (d'après la colonne Langue du dernier contenu de ce canal dans Content). Jamais de darija.
 8. Générer texte (hook, légende, hashtags) et visuels via l'**API Gemini de Google** (Imagen / Veo). Secours possible : gabarits Benidex + ffmpeg.
-9. Ranger les fichiers dans le dépôt GitHub : `output/AAAA-MM-JJ/<produit>/` ; commit + push sur la branche de travail ; chemin dans Folder.
+9. Ranger les fichiers dans le dépôt GitHub : `Prod/AAAA-MM-JJ/<produit>/` ; commit + push sur la **branche principale** du dépôt, sans jamais créer de branche ; chemin dans Folder.
 10. Créer la ligne dans Content en « À valider » ; ligne du plan → « Traité ».
 11. **Problème : statut « Échec » + explication dans « Explication échec »**, sans poser de question.
 

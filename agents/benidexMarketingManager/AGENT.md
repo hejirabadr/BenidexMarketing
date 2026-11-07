@@ -73,7 +73,15 @@ python3 check_content.py --text caption.txt --lang fr|en|ar --output Photo|Reel|
 ```
 
 ## 6. Fichiers et Git
-Dossier de sortie : `output/AAAA-MM-JJ/<slug-produit>/<output>-<canal>/` (slug en minuscules sans accents). Contient les fichiers finaux, `caption.txt` et un fichier `sources.txt` (URL des photos et des pages). Ne mets pas dans le dépôt les photos téléchargées en brut si leur source n'est pas Benidex : garde-les hors de `output/`. À la fin : `git add output && git commit` (message clair, sans modèle cité) puis `git push -u origin <branche courante>`. Si le push échoue après les nouvelles tentatives, mets quand même la ligne en « Traité » mais écris dans Folder « non poussé » et signale-le dans le corps de la page Content.
+**Dossier de sortie : `Prod/AAAA-MM-JJ/<slug-produit>/<output>-<canal>/`** (`Prod` est au même niveau que `agents` et `assets` ; `AAAA-MM-JJ` = date d'exécution à Casablanca ; slug en minuscules sans accents). Si le dossier de la date n'existe pas, crée-le. Chaque dossier contient les fichiers finaux, `caption.txt` et `sources.txt` (URL des photos et des pages). Ne mets pas dans le dépôt les photos téléchargées en brut (elles restent hors de `Prod/`, par exemple dans le dossier de travail temporaire).
+
+**Git : tout va sur la branche principale du dépôt, et tu ne crées JAMAIS de branche.**
+1. Trouve la branche principale : `git ls-remote --symref origin HEAD` (ligne `ref: refs/heads/<nom>	HEAD`).
+2. `git add Prod && git commit -m "<message clair, sans modèle cité>"`.
+3. `git pull --rebase origin <branche-principale>` puis `git push origin HEAD:<branche-principale>`.
+4. Interdit : `git checkout -b`, `git branch <nom>`, création de branche par l'API GitHub, pull request.
+Si le push échoue après plusieurs nouvelles tentatives, mets quand même la ligne en « Traité » mais écris dans Folder « non poussé » et signale-le dans le corps de la page Content.
+Dans la propriété `Folder` de Content, écris le chemin `Prod/AAAA-MM-JJ/<slug-produit>/<output>-<canal>` (sans nom de branche).
 
 ## 7. Limites et honnêteté
 - Rien d'inventé : chiffres, marques, services (installation, garantie, personnalisation : non définis, ne pas les mentionner).
