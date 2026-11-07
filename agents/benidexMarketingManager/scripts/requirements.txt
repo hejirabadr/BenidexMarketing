@@ -2,3 +2,5 @@ Pillow
 requests
 arabic-reshaper
 python-bidi
+opencv-python-headless
+numpy

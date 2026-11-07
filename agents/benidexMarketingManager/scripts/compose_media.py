@@ -85,9 +85,12 @@ def canvas(photo, W, H, scale=1):
     bg = bg.filter(ImageFilter.GaussianBlur(26 * scale))
     bg = Image.blend(bg, Image.new("RGB", (W, H), BLUE), 0.55)
     portrait, top, bottom = layout(W // scale, H // scale)
-    text_h = int(H * (0.25 if portrait else 0.34))
-    logo_bottom = top * scale + int(W * 0.137) + int(W * 0.03)  # pastille du logo + marge
-    box = (int(W * 0.06), logo_bottom, int(W * 0.94), H - bottom * scale - text_h)
+    if W / H > 1.3:  # paysage : photo à gauche, texte à droite
+        box = (int(W * 0.04), int(H * 0.08), int(W * 0.52), int(H * 0.92))
+    else:
+        text_h = int(H * (0.25 if portrait else 0.34))
+        logo_bottom = top * scale + int(W * 0.137) + int(W * 0.03)  # pastille du logo + marge
+        box = (int(W * 0.06), logo_bottom, int(W * 0.94), H - bottom * scale - text_h)
     card = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     ImageDraw.Draw(card).rounded_rectangle(box, radius=int(W * 0.035), fill=(255, 255, 255, 255))
     bg.paste(card, (0, 0), card)
@@ -104,6 +107,8 @@ def overlay(W, H, lang, hook=None, cta=False, cta_text=None):
     portrait, top, bottom = layout(W, H)
     ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(ov)
+    if W / H > 1.3:
+        return overlay_landscape(ov, d, W, H, lang, hook, cta, cta_text)
     # dégradé sombre en bas pour la lisibilité
     gh = int(H * 0.42)
     for y in range(gh):
@@ -136,6 +141,45 @@ def overlay(W, H, lang, hook=None, cta=False, cta_text=None):
             d.text((W // 2 + 2, y + 2), shape(ln, lang), font=f, fill=(0, 0, 0, 120), anchor="ma")
             d.text((W // 2, y), shape(ln, lang), font=f, fill=(255, 255, 255), anchor="ma")
             y += int(px * 1.25)
+    return ov
+
+
+def overlay_landscape(ov, d, W, H, lang, hook, cta, cta_text):
+    """16:9 : panneau de texte à droite de la photo (logo, titre, bouton, contact)."""
+    px0, pw = int(W * 0.56), int(W * 0.40)
+    d.rounded_rectangle((px0 - int(W * 0.015), int(H * 0.08), px0 + pw + int(W * 0.015), int(H * 0.92)),
+                        radius=int(W * 0.02), fill=(6, 40, 70, 150))
+    logo = Image.open(LOGO).convert("RGBA")
+    lw = int(W * 0.17)
+    logo = logo.resize((lw, round(logo.height * lw / logo.width)), Image.LANCZOS)
+    p = int(W * 0.01)
+    ly = int(H * 0.11)
+    d.rounded_rectangle((px0, ly, px0 + lw + 2 * p, ly + logo.height + 2 * p), radius=int(W * 0.012), fill=(255, 255, 255, 240))
+    ov.paste(logo, (px0 + p, ly + p), logo)
+    cx = px0 + pw // 2
+    zone_top, zone_bot = ly + logo.height + 2 * p + int(H * 0.04), int(H * 0.88)
+    blocks = []
+    if hook:
+        f, lines, px = fit_text(hook, lang, pw, int(H * 0.36), int(W * 0.046), int(W * 0.026))
+        blocks.append(("hook", f, lines, px, len(lines) * int(px * 1.25)))
+    if cta:
+        blocks.append(("cta", None, None, 0, int(W * 0.052) + int(H * 0.05) + int(W * 0.03)))
+    total = sum(b[4] for b in blocks) + int(H * 0.04) * (len(blocks) - 1)
+    y = zone_top + max(0, (zone_bot - zone_top - total) // 2)
+    for kind, f, lines, px, h in blocks:
+        if kind == "hook":
+            for ln in lines:
+                d.text((cx + 2, y + 2), shape(ln, lang), font=f, fill=(0, 0, 0, 120), anchor="ma")
+                d.text((cx, y), shape(ln, lang), font=f, fill=(255, 255, 255), anchor="ma")
+                y += int(px * 1.25)
+        else:
+            label = shape(cta_text or CTA[lang], lang)
+            fb = font(W * 0.026)
+            bw, bh = min(pw, int(fb.getlength(label) + W * 0.05)), int(W * 0.052)
+            d.rounded_rectangle((cx - bw // 2, y, cx + bw // 2, y + bh), radius=bh // 2, fill=ORANGE + (255,))
+            d.text((cx, y + bh // 2), label, font=fb, fill=(255, 255, 255), anchor="mm")
+            d.text((cx, y + bh + int(H * 0.025)), CONTACT, font=font(W * 0.0185), fill=(255, 255, 255), anchor="ma")
+        y += int(H * 0.04)
     return ov
 
 
