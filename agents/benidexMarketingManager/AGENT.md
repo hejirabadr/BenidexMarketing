@@ -35,7 +35,7 @@ Chaque combinaison **Output × Canal** donne **un contenu distinct** (une ligne 
    Produit « présent sur benidex.com » : le nom ou le lien saisi par Badr dans le plan fait foi, même si la page est momentanément inaccessible ; écris alors « page produit inaccessible le <date> » dans le corps de la page Content.
 5. **Décide seul** : l'angle et le public (clients prioritaires : écoles privées, appels d'offres, universités), les hashtags (selon contenu et cible).
 6. **Langue** : rotation **par canal** Français → Anglais → Arabe → Français… D'après la colonne `Langue` du dernier contenu de ce canal dans Content ; aucun contenu : commence par le français. Jamais de darija.
-7. **Texte** : un hook, 1 à 3 points forts (6 mots maximum chacun, tirés **uniquement de faits trouvés**), une légende, des hashtags. Termine la légende par l'appel à l'action : « Demandez votre devis » (FR), « Request your quote » (EN), « اطلب عرض السعر » (AR) + contact@benidex.com. **Aucun prix.** Ton selon `brand-context.md`. Écris la légende dans `caption.txt` du dossier de sortie.
+7. **Texte** : un hook, 1 à 3 points forts (6 mots maximum chacun, tirés **uniquement de faits trouvés**), une légende, des hashtags. Termine la légende par l'appel à l'action : « Demandez votre devis » (FR), « Request your quote » (EN), « اطلب عرض السعر » (AR) + contact@benidex.com. **Aucun prix.** Ton selon `brand-context.md`. Écris la légende dans `<output>-<canal>-legende.txt` du dossier du produit (voir §6).
 8. **Visuels** (voir §4).
 9. **Vérification** : `check_content.py` (voir §5). Si un contrôle échoue, corrige **une fois** et relance. Si ça échoue encore : « Échec » avec la liste des contrôles ratés.
 10. **Contenu dans Content** : une page par Output × Canal : Name (titre clair), Format, Channels, Langue, Hook, Folder (chemin du dossier), Publication date = Date prévue (si elle est passée : la date du jour), Status **« À valider »**, Source = URL(s) des photos/pages utilisées. Corps de la page : légende complète + hashtags + remarques (par exemple « les Notes demandaient des enfants qui jouent : non réalisable avec les photos disponibles »).
@@ -46,11 +46,11 @@ Le logo, un titre et le bouton « Demandez votre devis » + contact@benidex.com 
 
 **Post (Output « Photo »)**
 ```bash
-python3 compose_media.py post --photo <photo> --hook "<titre>" --lang fr|en|ar --size <LxH> --out final.jpg
+python3 compose_media.py post --photo <photo> --hook "<titre>" --lang fr|en|ar --size <LxH> --out Prod/AAAA-MM-JJ/<slug-produit>/<output>-<canal>.jpg
 ```
 **Reel / Vidéo** (au moins 1 `--point`, 2 de préférence ; autant de `--photo` que de bonnes photos, le script les enchaîne et les réutilise si besoin)
 ```bash
-python3 compose_media.py reel --photo <p1> --photo <p2> --hook "<titre>" --point "<atout 1>" --point "<atout 2>" --lang fr|en|ar --size <LxH> --seconds <24 pour un Reel, 16 pour une Vidéo> --out final.mp4
+python3 compose_media.py reel --photo <p1> --photo <p2> --hook "<titre>" --point "<atout 1>" --point "<atout 2>" --lang fr|en|ar --size <LxH> --seconds <24 pour un Reel, 16 pour une Vidéo> --out Prod/AAAA-MM-JJ/<slug-produit>/<output>-<canal>.mp4
 ```
 Un reel prend environ 1 minute à fabriquer. Titre : 10 mots maximum.
 
@@ -69,11 +69,18 @@ Durées : **Reel 15 à 30 s** (24 s) ; **Vidéo 20 s maximum** (16 s).
 ## 5. Checklist « Terminé » (oui/non)
 `check_content.py` contrôle : aucun prix ; appel à l'action présent ; ni BenQ ni « meilleur prix au Maroc » ; hook, légende, hashtags présents ; fichiers aux bonnes dimensions ; durées. Reste à ta charge : le produit est bien celui du plan (`--product-found yes|no`, voir §3.4) et le logo est présent (ajouté par le script).
 ```bash
-python3 check_content.py --text caption.txt --lang fr|en|ar --output Photo|Reel|Vidéo --channel Instagram|Facebook|LinkedIn|TikTok --media final.* --hook "<hook>" --product-found yes
+python3 check_content.py --text Prod/AAAA-MM-JJ/<slug-produit>/<output>-<canal>-legende.txt --lang fr|en|ar --output Photo|Reel|Vidéo --channel Instagram|Facebook|LinkedIn|TikTok --media Prod/AAAA-MM-JJ/<slug-produit>/<output>-<canal>.* --hook "<hook>" --product-found yes
 ```
 
 ## 6. Fichiers et Git
-**Dossier de sortie : `Prod/AAAA-MM-JJ/<slug-produit>/<output>-<canal>/`** (`Prod` est au même niveau que `agents` et `assets` ; `AAAA-MM-JJ` = date d'exécution à Casablanca ; slug en minuscules sans accents). Si le dossier de la date n'existe pas, crée-le. Chaque dossier contient les fichiers finaux, `caption.txt` et `sources.txt` (URL des photos et des pages). Ne mets pas dans le dépôt les photos téléchargées en brut (elles restent hors de `Prod/`, par exemple dans le dossier de travail temporaire).
+**Arborescence de sortie** (strictement) : un dossier `Prod` (au même niveau que `agents` et `assets`), dedans un dossier **à la date d'exécution** (`AAAA-MM-JJ`, heure de Casablanca), dedans un dossier **au nom du produit** (slug en minuscules, sans accents, tirets), et **dedans directement les fichiers créés, sans autre sous-dossier** :
+```
+Prod/AAAA-MM-JJ/<slug-produit>/
+  <output>-<canal>.mp4 (ou .jpg pour une Photo)     ex. reel-instagram.mp4, video-facebook.mp4, photo-linkedin.jpg
+  <output>-<canal>-legende.txt                     légende + hashtags du même contenu
+  sources.txt                                      URL des photos et des pages utilisées (une seule fois par produit)
+```
+`<output>` = `reel`, `video` ou `photo` ; `<canal>` = `instagram`, `facebook`, `linkedin` ou `tiktok`. Si l'Output Reel et l'Output Vidéo donnent le même format sur un canal (LinkedIn), un seul fichier `video-linkedin.mp4` couvre les deux. Crée les dossiers qui n'existent pas. Ne mets pas dans le dépôt les photos téléchargées en brut (elles restent hors de `Prod/`, dans le dossier de travail temporaire). Si un dossier produit existe déjà pour cette date, ajoute-y les nouveaux fichiers sans écraser les autres.
 
 **Git : tout va sur la branche principale du dépôt, et tu ne crées JAMAIS de branche.**
 1. Trouve la branche principale : `git ls-remote --symref origin HEAD` (ligne `ref: refs/heads/<nom>	HEAD`).
@@ -81,7 +88,7 @@ python3 check_content.py --text caption.txt --lang fr|en|ar --output Photo|Reel|
 3. `git pull --rebase origin <branche-principale>` puis `git push origin HEAD:<branche-principale>`.
 4. Interdit : `git checkout -b`, `git branch <nom>`, création de branche par l'API GitHub, pull request.
 Si le push échoue après plusieurs nouvelles tentatives, mets quand même la ligne en « Traité » mais écris dans Folder « non poussé » et signale-le dans le corps de la page Content.
-Dans la propriété `Folder` de Content, écris le chemin `Prod/AAAA-MM-JJ/<slug-produit>/<output>-<canal>` (sans nom de branche).
+Dans la propriété `Folder` de Content, écris le chemin du fichier : `Prod/AAAA-MM-JJ/<slug-produit>/<output>-<canal>.mp4` (ou `.jpg`), sans nom de branche.
 
 ## 7. Limites et honnêteté
 - Rien d'inventé : chiffres, marques, services (installation, garantie, personnalisation : non définis, ne pas les mentionner).
