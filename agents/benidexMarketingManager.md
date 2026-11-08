@@ -3,7 +3,7 @@
 > Statut : **construit** (instructions dans `agents/benidexMarketingManager/AGENT.md`, scripts dans `agents/benidexMarketingManager/scripts/`). **Option A retenue** : pas d'IA d'images (quota Google bloqué) ; l'agent compose posts et reels à partir de vraies photos (scripts `compose_media.py`, `fetch_product_photos.py`). Si la page produit ne marche pas, l'agent cherche données et photos sur internet. À lire avec `CLAUDE.md` et `brand/brand-context.md`.
 
 ## Rôle
-Lire le plan média dans Notion et produire, pour chaque ligne du jour, le contenu (texte + visuels) du produit à couvrir, au format demandé (Reel, Vidéo ou Photo). **Publie systématiquement** les contenus contrôlés sur les comptes connectés via Windsor (aujourd'hui : Instagram @benidex.maroc pour les vidéos et photos). **S'il n'a rien à publier ou si le compte n'est pas connecté, il ne publie rien.** Voir `AGENT.md` §8.
+Lire le plan média dans Notion et produire, pour chaque ligne du jour, le contenu (texte + visuels) du produit à couvrir, au format demandé (Reel, Vidéo ou Photo). **Publie uniquement les contenus validés par Badr** : il passe le statut du contenu à « Prêt » dans Notion (notification sur son téléphone) ; l'agent publie alors via Windsor sans rien redemander. Voir `AGENT.md` §8 et §9.
 
 ## Notion (workspace « Benidex Marketing »)
 - **Media Plan** : https://app.notion.com/p/b41156e74308469787fc77990de8141c (`collection://2dae0263-bdac-4824-b5a5-8f15c6b6df1e`)
@@ -73,3 +73,8 @@ Vidéo : 20 s maximum. Un fichier par format si plusieurs canaux.
 - Une ligne du Media Plan = un seul canal. Pour Instagram et TikTok : deux lignes.
 - Statut final : « Traité » seulement si créé **et** publié ; sinon « Échec » avec la raison précise dans « Explication échec ».
 - Heure d'exécution : 18 h GMT.
+
+## Mise à jour (validation par Notion)
+- À chaque exécution : **Phase A** = publier les contenus « Prêt » ; **Phase B** = créer les nouveaux contenus (statut « À valider », ligne du plan « En attente de validation ») ; puis une notification sur le téléphone de Badr.
+- Le contenu validé est publié à l'exécution suivante (18 h GMT) : pas de publication instantanée à la validation.
+- Base Content : nouvelle relation « Ligne du plan ». Media Plan : nouveau statut « En attente de validation ».
