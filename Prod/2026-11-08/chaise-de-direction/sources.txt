@@ -1,3 +1,5 @@
 Photo : https://benidex.com/wp-content/uploads/2023/03/cabrio-boos_MG_1601-600x1011-1.webp (site benidex.com, photo propre à Benidex)
 Produit : chaise de directeur coloris camel (lien du site : https://benidex.com/produit/cabrio-chaise-de-directeur-camel/)
 Test de publication Facebook du 2026-11-08.
+
+Publication Facebook effectuee le 2026-11-08 via Windsor (create_photo_post) sur la Page 340059989831096. Photo id 1811317840998582. Post id 340059989831096_1811317897665243.
