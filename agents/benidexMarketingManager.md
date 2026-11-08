@@ -7,14 +7,14 @@ Lire le plan média dans Notion et produire, pour chaque ligne du jour, le conte
 
 ## Notion (workspace « Benidex Marketing »)
 - **Media Plan** : https://app.notion.com/p/b41156e74308469787fc77990de8141c (`collection://2dae0263-bdac-4824-b5a5-8f15c6b6df1e`)
-  - Colonnes : Name, Produit, Catégorie, Output (Reel / Vidéo / Photo), Canaux (Instagram / Facebook / LinkedIn / TikTok, un ou plusieurs), Date prévue, Statut (À faire / En cours / Traité / Échec), Explication échec, Notes.
+  - Colonnes : Name, Produit, Catégorie, Output (Reel / Vidéo / Photo), Canal (Instagram / Facebook / LinkedIn / TikTok, **un seul par ligne**), Date prévue, Statut (À faire / En cours / Traité / Échec), Explication échec, Notes.
   - **À ajouter à la construction** : colonne « Photos produit » (fichiers ou liens). L'agent utilise **toutes les photos/liens présents dans Notion** (colonne ou corps de la page), sans plafond fixe.
 - **Content** : https://app.notion.com/p/97200538e2184433aa727f95e986936d (`collection://b8a3e041-ce0a-4e73-9ba8-a919e8bb29ac`)
   - Formats : Carrousel, Reel, Photo, Vidéo. Statut « À valider » à la création. Folder = chemin des fichiers.
   - **À ajouter à la construction** : colonne « Langue » (Français / Anglais / Arabe).
 
 ## Déclenchement
-Automatique, chaque jour à **5 h heure de Casablanca** (4 h UTC ; 5 h UTC pendant le ramadan, UTC+0). Nouvelle session sur ce dépôt à chaque exécution, avec accès Notion et clé Gemini.
+Automatique, chaque jour à **18 h GMT** (19 h à Casablanca ; 18 h pendant le ramadan). Nouvelle session sur ce dépôt à chaque exécution, avec accès Notion et clé Gemini.
 
 ## Déroulé (modèle : Sonnet 5.5)
 1. Lire le Media Plan **dans l'ordre de la liste Notion**.
@@ -68,3 +68,8 @@ Vidéo : 20 s maximum. Un fichier par format si plusieurs canaux.
 - Vérifie à chaque exécution que le compte est connecté (`get_connectors`) et qu'une action adaptée existe (`list_actions`) ; sinon rien n'est publié.
 - Statut Content : « Publié » seulement après un succès, avec l'identifiant média dans la page.
 - Prérequis : connecteur Windsor et connecteur Notion attachés à la routine dans l'interface claude.ai.
+
+## Mise à jour (une ligne par canal)
+- Une ligne du Media Plan = un seul canal. Pour Instagram et TikTok : deux lignes.
+- Statut final : « Traité » seulement si créé **et** publié ; sinon « Échec » avec la raison précise dans « Explication échec ».
+- Heure d'exécution : 18 h GMT.
