@@ -27,6 +27,8 @@ Tous les outils marketing de Benidex : contenus, médias (visuels, vidéos, rés
 - **Format des livrables** : selon le besoin. Choisir le format adapté (Markdown, Word, PDF, Google Docs, Notion, etc.) et me le dire.
 - **Git** : après chaque création, **commit et push directement sur la branche principale** du dépôt (la branche par défaut sur GitHub), avec un message de commit clair. **Ne jamais créer de branche.** Pas de pull request sans que je la demande. Les résultats des agents vont dans `Prod/AAAA-MM-JJ/` (au même niveau que `agents` et `assets`).
 
+- **Publication** : automatique, **sans me demander mon accord à chaque fois**. Les agents (et Claude) publient directement sur les comptes connectés (Instagram, Facebook via Windsor), selon `agents/benidexMarketingManager/AGENT.md` §8. Exceptions qui restent soumises à mon accord : tout ce qui dépense de l'argent (publicités, boost, campagnes), la suppression ou la modification de publications existantes, et les messages à des clients. Si un fait est douteux, ne pas publier et me le signaler.
+
 ## Rappels de marque (détails dans `brand/brand-context.md`)
 
 - Ne jamais afficher de prix : vente sur devis. Appel à l'action : « Demandez votre devis ».
